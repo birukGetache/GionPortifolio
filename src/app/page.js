@@ -32,7 +32,7 @@ export default function Home() {
           });
           setVisibleSections(newVisibleSections); // Update the state with visibility info
         },
-        { threshold: [0.2, 1] } // Monitor both when 20% and 100% of the section is visible
+        { threshold: [0, 1] } // Monitor both when 20% and 100% of the section is visible
       );
 
       // Observe all sections
@@ -45,11 +45,18 @@ export default function Home() {
 
   return (
     <div className="w-screen">
+      
       <img src="/grid.svg" alt="grid" style={{ height: "100vh" }} />
-      <div className="absolute top-0 w-screen">
-        <Navbar />
-        <Text />
-      </div>
+      <div className="absolute top-0 w-screen lg:h-screen flex items-center justify-center flex-col">
+  {/* Navbar stays fixed */}
+  <Navbar className="self-start" />
+
+  {/* Text centered within remaining space */}
+    <Text />
+
+</div>
+
+
 
       <div className="relative sm:mt-20 md:mt-20">
         <About isVisible={visibleSections.about} />

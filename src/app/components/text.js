@@ -3,14 +3,14 @@ import styles from "./BendingLine.module.css";
 
 const BentLine = () => {
   return (
-    <div className={`${styles.container} p-4 sm:p-6`}>
+    <div className={`${styles.container} p-4 sm:p-2 max-h-screen `}>
       <div>
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-200 mt-6 sm:mt-10 mb-4 sm:mb-6">
+        <h1 className=" text-5xl md:text-4xl font-bold text-center text-gray-200 mt-6 sm:mt-10 mb-4 sm:mb-6">
           <span className="text-indigo-600">Empowering</span>{" "}
           <span className="text-green-500">Ideas</span> with{" "}
           <span className="text-yellow-500">Technology</span>
         </h1>
-        <p className="text-sm sm:text-lg text-center text-gray-400 mb-6 sm:mb-12">
+        <p className=" text-2xl text-center text-gray-400 mb-6 sm:mb-12">
           Unleashing the full potential of technology to bring your vision to life, securely and innovatively.
         </p>
         <svg
@@ -54,6 +54,7 @@ const BentLine = () => {
           className="w-full max-w-sm sm:max-w-md mx-auto"
         />
       </div>
+
     </div>
   );
 };

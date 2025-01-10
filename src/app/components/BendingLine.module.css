@@ -3,11 +3,13 @@
     grid-template-columns: 1fr 1fr;
     place-items: center; /* This centers content both vertically and horizontally */
     width: 100%;
-    height: 100vh; /* Use 100vh to make the container take up the full height of the viewport */
-    overflow: hidden;
+    overflow-x: hidden;
     background-color: transparent;
     padding-left: 70px;
     padding-right: 70px;
+    height: fit-content;
+
+
 }
 
 /* Mobile-specific adjustments */
@@ -23,7 +25,11 @@
 
   @media (max-width: 640px) {
     .container{
+      padding-left: 30px;
+      padding-right: 30px;
       grid-template-columns: 1fr;
+      grid-template-rows: fit-content(400px) fit-content(300px);
+
     }
     .svg {
       max-width: 400px;
