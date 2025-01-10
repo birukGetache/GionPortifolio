@@ -1,42 +1,40 @@
-"use client";
+"use client"; // Ensures this is treated as a client component
+import dynamic from 'next/dynamic';
 import { useState, useEffect } from "react";
-import Text from "./components/text";
-import Navbar from "./components/Nav";
-import About from "./components/About";
-import Services from "./components/Service";
-import Team from "./components/Team";
-import Project from "./components/Project";
-import Partner from "./components/Partner";
-import Fotter from "./components/Fotter";
+
+// Dynamically import components with SSR disabled
+const Navbar = dynamic(() => import("./components/Nav"), { ssr: false });
+const Text = dynamic(() => import("./components/text"), { ssr: false });
+const About = dynamic(() => import("./components/About"), { ssr: false });
+const Services = dynamic(() => import("./components/Service"), { ssr: false });
+const Team = dynamic(() => import("./components/Team"), { ssr: false });
+const Project = dynamic(() => import("./components/Project"), { ssr: false });
+const Partner = dynamic(() => import("./components/Partner"), { ssr: false });
+const Fotter = dynamic(() => import("./components/Fotter"), { ssr: false });
 
 export default function Home() {
   const [visibleSections, setVisibleSections] = useState({});
 
   useEffect(() => {
-    //selecte all section on pages
+    // Guarding against SSR
+    if (typeof window === "undefined") return;
+
     const sections = document.querySelectorAll("section");
-    //
     const observer = new IntersectionObserver(
       (entries) => {
-        const newVisibleSections = { ...visibleSections }; // Copy the current visibleSections state
+        const newVisibleSections = { ...visibleSections };
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // Mark the section as visible
-            newVisibleSections[entry.target.id] = true;
-          } else {
-            // Mark the section as not visible
-            newVisibleSections[entry.target.id] = false;
-          }
+          newVisibleSections[entry.target.id] = entry.isIntersecting;
         });
-        setVisibleSections(newVisibleSections); // Update the state with visibility info
+        setVisibleSections(newVisibleSections);
       },
-      { threshold: [0.2, 1] } // Monitor both when 50% and 100% of the section is visible
+      { threshold: [0.2, 1] }
     );
 
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
-  }, [visibleSections]);
+  }, []); // Removed `visibleSections` dependency to avoid unnecessary re-renders
 
   return (
     <div className="w-screen">
@@ -46,14 +44,24 @@ export default function Home() {
         <Text />
       </div>
 
-      <div className="relative sm:mt-20 md:mt-20">
+      <div className="relative sm:mt-20 md:mt-20" id="about">
         <About isVisible={visibleSections.about} />
       </div>
-      <Services isVisible={visibleSections.services} />
-      <Team isVisible={visibleSections.team} />
-      <Project isVisible={visibleSections.project} />
-      <Partner isVisible={visibleSections.partner} />
-      <Fotter isVisible={visibleSections.fotter} />
+      <div id="services">
+        <Services isVisible={visibleSections.services} />
+      </div>
+      <div id="team">
+        <Team isVisible={visibleSections.team} />
+      </div>
+      <div id="project">
+        <Project isVisible={visibleSections.project} />
+      </div>
+      <div id="partner">
+        <Partner isVisible={visibleSections.partner} />
+      </div>
+      <div id="fotter">
+        <Fotter isVisible={visibleSections.fotter} />
+      </div>
     </div>
   );
 }
