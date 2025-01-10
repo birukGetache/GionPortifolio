@@ -17,12 +17,12 @@ const teamMembers = [
   },
   {
     id: 2,
-    name: 'Keleab Solomon',
-    role: 'Full stack and Mobile App Developer',
-    image: '/kaleab.jpg',
-    linkedin: 'https://linkedin.com/in/Kalab',
-    twitter: 'https://twitter.com/Kalab',
-    profile: 'https://example.com/Kalab',
+    name: 'Keku kellemwork',
+    role: ' Marketing Manager and Video Editor',
+    image: '/keku.jpg',
+    linkedin: 'https://linkedin.com/in/birukf',
+    twitter: 'https://twitter.com/birukf',
+    profile: 'https://example.com/birukf',
   },
   {
     id: 3,
@@ -33,24 +33,7 @@ const teamMembers = [
     twitter: 'https://twitter.com/Kaleb',
     profile: 'https://example.com/Kaleb',
   },
-  {
-    id: 4,
-    name: 'Kaleab Alemayehu',
-    role: ' Full stack Developer',
-    image: '/logo.png',
-    linkedin: 'https://linkedin.com/in/birukf',
-    twitter: 'https://twitter.com/birukf',
-    profile: 'https://example.com/birukf',
-  },
-  {
-    id: 5,
-    name: 'Keku kellemwork',
-    role: ' Marketing Manager and Video Editor',
-    image: '/keku.jpg',
-    linkedin: 'https://linkedin.com/in/birukf',
-    twitter: 'https://twitter.com/birukf',
-    profile: 'https://example.com/birukf',
-  },
+  
 ];
 
 const Team = ({isVisible}) => {
@@ -65,7 +48,7 @@ const Team = ({isVisible}) => {
     id="team"
   >
       <h2 className="text-3xl  text-gray-800 font-semibold text-center mb-8">Our Team</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <div className=" max-w-7xl grid  mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 px-4 gap-16">
         {teamMembers.map((member) => (
           <div
             key={member.id}
