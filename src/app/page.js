@@ -39,10 +39,9 @@ const DynamicHome = () => {
   return (
     <div className="w-screen">
       <img src="/grid.svg" alt="grid" style={{ height: "100vh" }} />
-      <div className="absolute top-0 w-screen">
+      <div className="absolute h-screen top-0 w-screen">
         <Navbar />
         <Text />
-        <AutoIncreaseCounter />
       </div>
 
       <div className="relative sm:mt-20 md:mt-20">

@@ -4,7 +4,7 @@ import styles from "./BendingLine.module.css";
 
 const BentLine = () => {
   return (
-    <div className={`${styles.container} p-4 sm:p-2 max-h-screen `}>
+    <div className={`${styles.container} p-4 sm:p-2 h-screen `}>
       <div>
         <h1 className=" text-5xl md:text-4xl font-bold text-center text-gray-200 mt-6 sm:mt-10 mb-4 sm:mb-6">
           <span className="text-indigo-600">Empowering</span>{" "}

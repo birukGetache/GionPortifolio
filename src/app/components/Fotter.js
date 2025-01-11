@@ -28,11 +28,7 @@ const Footer = () => {
               Your trusted partner for innovative solutions. We deliver excellence in every project.
             </p>
           </div>
-          <div className="mt-6 md:mt-0">
-            <p className="text-gray-400 text-sm text-center md:text-left">
-              © {new Date().getFullYear()} Gion. All rights reserved.
-            </p>
-          </div>
+         
         </div>
 
         {/* Section 2: Links and Map */}
@@ -86,6 +82,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div className="mt-6 md:mt-0 ">
+            <p className="text-gray-400 text-sm  md:text-left text-center flex justify-center">
+             <span> © {new Date().getFullYear()} Gion. All rights reserved.</span>
+            </p>
+          </div>
     </footer>
   );
 };

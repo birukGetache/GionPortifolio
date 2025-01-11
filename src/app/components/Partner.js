@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 const PartnerCard = ({ partner }) => {
   return (
     <div
-      className="max-w-xs mx-auto bg-white bg-opacity-10 rounded-full p-10 shadow-xl overflow-hidden mb-8 border-green-600"
+      className="max-w-xs mx-auto bg-white bg-opacity-10 rounded-full p-10 shadow-xl overflow-hidden mb-8 border-slate-600"
       style={{ borderWidth: "3px" }}
     >
       {/* Partner Logo */}
@@ -38,7 +38,7 @@ const PartnerPage = ({ isVisible }) => {
 
   return (
     <section
-      className={`container mx-auto px-4 service transition-opacity duration-500 ease-in-out flex items-center justify-center ${
+      className={`container py-10 mx-auto px-4 service transition-opacity duration-500 ease-in-out flex items-center justify-center ${
         isVisible ? "opacity-100 animate-serviceanime" : "opacity-0"
       }`}
       id="partner"

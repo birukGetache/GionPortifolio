@@ -52,7 +52,7 @@ const Team = ({isVisible}) => {
         {teamMembers.map((member) => (
           <div
             key={member.id}
-            className="bg-white bg-opacity-10 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 border-2 border-green-600 w-full max-w-full sm:w-full"
+            className="bg-white bg-opacity-10 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 border-2 border-slate-700 w-full max-w-full sm:w-full"
             onClick={() => {
               setPerson(true);
               setDetailid(member);
