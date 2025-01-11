@@ -30,7 +30,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={` ${theme === 'dark' ? 'bg-gray-700' : 'bg-white'}  bg-opacity-10 text-white shadow-md w-[80%] rounded-full m-auto ${theme === 'dark' ? 'dark' : ''} lg:mt-20 mt-10 sm:mt-8`}>
+    <nav className={` ${theme === 'dark' ? 'bg-gray-700' : 'bg-white'} sticky top-16 z-10 bg-opacity-20 text-white shadow-md w-[80%] rounded-full m-auto ${theme === 'dark' ? 'dark' : ''} lg:mt-20 mt-10 sm:mt-8`}>
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className=" flex items-center justify-between h-16 relative">
           {/* Logo */}

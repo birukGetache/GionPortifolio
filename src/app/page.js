@@ -39,10 +39,10 @@ const DynamicHome = () => {
   return (
     <div className="w-screen">
       <img src="/grid.svg" alt="grid" style={{ height: "100vh" }} />
-      <div className="absolute h-screen top-0 w-screen">
+      <div className="absolute top-0  w-screen">
         <Navbar />
         <Text />
-      </div>
+    
 
       <div className="relative sm:mt-20 md:mt-20">
         <About isVisible={visibleSections.about} />
@@ -52,6 +52,7 @@ const DynamicHome = () => {
       <Project isVisible={visibleSections.project} />
       <Partner isVisible={visibleSections.partner} />
       <Fotter isVisible={visibleSections.fotter} />
+      </div>
     </div>
   );
 };
