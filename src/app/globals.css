@@ -2,15 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.root {
-  background-color: black;
-}
-
 body {
-  color: var(--foreground);
-  background-color: black;
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+}
+
+.dark-theme {
+  background-color:   black; /* Optional: Adjust text color */
 }
 
 .about {

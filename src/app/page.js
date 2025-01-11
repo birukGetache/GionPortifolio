@@ -8,6 +8,7 @@ import Team from "./components/Team";
 import Project from "./components/Project";
 import Partner from "./components/Partner";
 import Fotter from "./components/Fotter";
+import AutoIncreaseCounter from "./components/AutoIncreaseCounter";
 
 export default function Home() {
   const [visibleSections, setVisibleSections] = useState({});
@@ -44,7 +45,7 @@ export default function Home() {
   }, [visibleSections]);
 
   return (
-    <div className="w-screen">
+    <div className="w-screen" id="home">
       
       <img src="/grid.svg" alt="grid" style={{ height: "100vh" }} />
       <div className="absolute top-0 w-screen lg:h-screen flex items-center justify-center flex-col">
@@ -53,7 +54,7 @@ export default function Home() {
 
   {/* Text centered within remaining space */}
     <Text />
-
+<AutoIncreaseCounter></AutoIncreaseCounter>
 </div>
 
 

@@ -44,7 +44,7 @@ const PartnerPage = ({ isVisible }) => {
     >
       <div className="container mx-auto px-4 max-h-[500px] overflow-y-auto">
         <h1 className="text-4xl font-semibold text-center text-gray-800 mb-12">
-          Our Trusted Partners
+          Our Trusted Partner
         </h1>
         <div
           className={`grid ${

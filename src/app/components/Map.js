@@ -11,18 +11,24 @@ L.Icon.Default.mergeOptions({
   iconUrl: require('leaflet/dist/images/marker-icon.png').default,
   shadowUrl: require('leaflet/dist/images/marker-shadow.png').default,
 });
+
 const MapComponent = () => {
-  const position = [11.5993 , 37.3737]; // Example coordinates (latitude, longitude)
- 
+  const position = [11.5993, 37.3737]; // Example coordinates (latitude, longitude)
+
   return (
-    <MapContainer center={position} zoom={14} style={{ height: '100%', width: '100%' }}>
+    <MapContainer
+      center={position}
+      zoom={14}
+      style={{ height: '100%', width: '100%' , zIndex:"5" }}
+      scrollWheelZoom={false} // Disable zoom on scroll
+    >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
       <Marker position={position}>
         <Popup>
-         Gion BiT
+          Gion BiT
         </Popup>
       </Marker>
     </MapContainer>

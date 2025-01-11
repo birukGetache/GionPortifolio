@@ -11,6 +11,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        cursive: ['"Comic Sans MS"', 'cursive', 'sans-serif'], // Add your cursive font
+      },
       keyframes: {
         aboutanime: {
           from: { transform: "translateY(300px)" },

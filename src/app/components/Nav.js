@@ -1,10 +1,20 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa'; // Import sun, moon, bars, and times icons
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState('light'); // Default theme is light
   const [language, setLanguage] = useState('en'); // Default language is English
+
+  useEffect(() => {
+    // Apply the theme to the body background
+    if (theme === 'dark') {
+      document.body.classList.remove('dark-theme');
+    } else {
+      document.body.classList.add('dark-theme');
+    }
+  }, [theme]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -12,7 +22,6 @@ const Navbar = () => {
 
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
-    document.documentElement.classList.toggle('dark', theme === 'light');
   };
 
   const handleLanguageChange = (e) => {
@@ -21,14 +30,14 @@ const Navbar = () => {
   };
 
   return (
-<nav className={`bg-white bg-opacity-10 text-white shadow-md w-[80%] rounded-full m-auto ${theme === 'dark' ? 'dark' : ''} lg:mt-20 mt-10 sm:mt-8`}>
-
+    <nav className={` ${theme === 'dark' ? 'bg-gray-700' : 'bg-white'}  bg-opacity-10 text-white shadow-md w-[80%] rounded-full m-auto ${theme === 'dark' ? 'dark' : ''} lg:mt-20 mt-10 sm:mt-8`}>
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="relative flex items-center justify-between h-16">
+        <div className=" flex items-center justify-between h-16 relative">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="/" className="text-2xl font-bold text-white h-[30px] w-[30px]">
+            <a href="/" className="text-2xl font-bold text-white h-[30px] w-[30px] flex gap-3">
               <img src='/logo.png' alt='logo' className='max-h-full max-w-full rounded-full' />
+              <p className='font-cursive'>Gion</p>
             </a>
           </div>
 
@@ -42,46 +51,45 @@ const Navbar = () => {
 
           {/* Right section: Language Selector and Theme Toggle */}
           <div className="flex items-center space-x-4">
-            {/* Language Selector */}
-            <select 
-              value={language} 
-              onChange={handleLanguageChange} 
-              className="bg-transparent text-white border border-gray-300 p-2 rounded"
-            >
-              <option value="en">EN</option>
-              <option value="es">AM</option>
-              <option value="fr">OR</option>
-              {/* Add more languages as needed */}
-            </select>
 
             {/* Theme Toggle Button (Sun/Moon) */}
             <button 
               onClick={toggleTheme} 
-              className="text-gray-300 hover:text-white"
+              className={`hover:text-${theme === 'light' ? 'black' : 'white'} text-${theme === 'light' ? 'white' : 'black'}`}
             >
               {theme === 'light' ? (
-                <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                  <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M12 6a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"></path>
-                </svg>
+                <FaSun className="w-6 h-6 text-yellow-500" /> // Sun icon
               ) : (
-                <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
-                  <path d="M12 3v3M12 18v3M3 12h3M18 12h3M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M12 6a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"></path>
-                </svg>
+                <FaMoon className="w-6 h-6 text-blue-500" /> // Moon icon
+              )}
+            </button>
+
+            {/* Hamburger Icon for Mobile */}
+            <button 
+              onClick={toggleMobileMenu} 
+              className="sm:hidden text-white hover:text-gray-400"
+            >
+              {isMobileMenuOpen ? (
+                <FaTimes className="w-6 h-6" /> // Close icon
+              ) : (
+                <FaBars className="w-6 h-6" /> // Hamburger icon
               )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="sm:hidden bg-gray-800 text-white px-2 pt-2 pb-3 space-y-1">
-          <a href="#" className="block text-gray-300 hover:text-white">Home</a>
-          <a href="#" className="block text-gray-300 hover:text-white">About</a>
-          <a href="#" className="block text-gray-300 hover:text-white">Services</a>
-          <a href="#" className="block text-gray-300 hover:text-white">Contact</a>
-        </div>
-      )}
+  <div className="inset-0 w-[80%] bg-black fixed gap-10 flex flex-col justify-center items-center text-white px-2 pt-2 pb-3 space-y-1 z-10 sm:hidden">
+    <a href="#home" className="block text-gray-300 hover:text-white" onClick={()=>{setIsMobileMenuOpen(false)}}>Home</a>
+    <a href="#about" className="block text-gray-300 hover:text-white" onClick={()=>{setIsMobileMenuOpen(false)}}>About</a>
+    <a href="#services" className="block text-gray-300 hover:text-white" onClick={()=>{setIsMobileMenuOpen(false)}}>Services</a>
+      <a href="#contact" className="block text-gray-300 hover:text-white" onClick={()=>{setIsMobileMenuOpen(false)}}>Contact</a>
+  </div>
+)}
+
+
+
     </nav>
   );
 };

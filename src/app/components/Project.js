@@ -62,7 +62,6 @@ const Team = ({isVisible}) => {
             <div className="text-center mt-4">
               <h3 className="text-xl font-semibold text-gray-600">{member.name}</h3>
               <p className="text-gray-500 mt-2">{member.role}</p>
-              <p className="text-blue-500 p-1 cursor-pointer">More</p>
             </div>
           </div>
         ))}

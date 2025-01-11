@@ -12,7 +12,7 @@ const About = ({ isVisible }) => {
           {/* Left Column: Description */}
           <div className="">
             <div className="lg:w-1/2 text-center lg:text-left bg-white bg-opacity-5 rounded-md min-w-[260px] max-w-[700px] box-border p-10">
-              <h2 className="text-4xl font-extrabold text-gray-200 mb-4">
+              <h2 className="text-4xl font-extrabold  text-gray-800 mb-4">
                 About Gion
               </h2>
               <p className="text-lg text-gray-600 mb-6">

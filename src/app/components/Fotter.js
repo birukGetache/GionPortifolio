@@ -10,7 +10,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className=" text-white py-12 border-gray-700" style={{borderTopWidth:"3px"}}>
+    <footer className=" text-white py-12 border-gray-700" id='contact'style={{borderTopWidth:"3px"}}>
       <div className="container mx-auto px-4">
         {/* Section 1: Logo and Description */}
         <div className="flex flex-col md:flex-row items-center justify-between mb-12">
@@ -29,12 +29,12 @@ const Footer = () => {
 
         {/* Section 2: Links (Mapping through items) */}
         <div className='grid lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-3 mb-10'>
-        <div className="grid gap-6 mb-12 h-full p-10 rounded-md bg-white bg-opacity-10">
-          <p className="text-gray-800 hover:text-white">Quick Links</p>
+        <div className=" gap-6 mb-12 h-full p-10 rounded-md bg-white flex flex-col justify-center  bg-opacity-10">
+          <p className="text-gray-600 hover:text-white text-center">Quick Links</p>
           {footerLinks.map((link, index) => (
             <div key={index}>
               <ul >
-                <li>
+                <li className='text-center'>
                   <a href={link.href} className="text-gray-400 hover:text-white">
                     {link.name}
                   </a>
