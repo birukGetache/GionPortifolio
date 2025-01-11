@@ -20,7 +20,7 @@ export default {
           to: { transform: "translateX(0px)" },
         },
         serviceanime: { // Move this inside the `keyframes` object
-          from: { transform: "translateY(300px)" },
+          from: { transform: "translateY(100px)" },
           to: { transform: "translateX(0px)" },
         },
       },

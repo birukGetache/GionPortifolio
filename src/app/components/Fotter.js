@@ -70,13 +70,14 @@ const Footer = () => {
         <div className="bg-gray-700 rounded-lg p-8">
           <h3 className="text-2xl font-semibold text-center text-gray-300 mb-6">Subscribe to Our Social Media Pages</h3>
           <div className="grid grid-cols-3 gap-10 place-items-center mx-auto max-w-32">
-            <a>
+          <a href="  https://www.instagram.com/nahom.k_12/" target="_blank" >
               <FaInstagram size={40} />
             </a>
-            <a>
+            <a href="https://t.me/nahigoph12" target="_blank">
+
               <FaTelegramPlane size={40} />
             </a>
-            <a>
+            <a href="https://www.linkedin.com/in/nahom-keneni-638290330/">
               <FaLinkedin size={40} />
             </a>
           </div>
