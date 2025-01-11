@@ -1,4 +1,4 @@
-"use client";
+"use client"; // Ensures that the component is rendered client-side only
 import { useState, useEffect } from "react";
 import Text from "./components/text";
 import Navbar from "./components/Nav";
@@ -12,29 +12,28 @@ import AutoIncreaseCounter from "./components/AutoIncreaseCounter";
 
 export default function Home() {
   const [visibleSections, setVisibleSections] = useState({});
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    // Ensure IntersectionObserver is only used in the browser
     if (typeof window !== "undefined") {
+      // Mark as client-side
+      setIsClient(true);
+
       // Select all sections on the page
       const sections = document.querySelectorAll("section");
-       console.log(sections)
+
       // Create IntersectionObserver to monitor visibility
-      const observer = new IntersectionObserver(
-        (entries) => {
-          const newVisibleSections = { ...visibleSections }; // Copy the current visibleSections state
+      const observer = new IntersectionObserver((entries) => {
+        setVisibleSections((prev) => {
+          const newVisibleSections = { ...prev }; // Copy the current state
           entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              // Mark the section as visible
-              newVisibleSections[entry.target.id] = true;
-            } else {
-              // Mark the section as not visible
-              newVisibleSections[entry.target.id] = false;
-            }
+            newVisibleSections[entry.target.id] = entry.isIntersecting;
           });
-          setVisibleSections(newVisibleSections); // Update the state with visibility info
-        },
-        { threshold: [0, 1] } // Monitor both when 20% and 100% of the section is visible
-      );
+          console.log(newVisibleSections); // Log the updated state
+          return newVisibleSections;
+        });
+      }, { threshold: [0, 1] }); // Monitor both when 20% and 100% of the section is visible
 
       // Observe all sections
       sections.forEach((section) => observer.observe(section));
@@ -42,22 +41,22 @@ export default function Home() {
       // Cleanup observer on component unmount
       return () => observer.disconnect();
     }
-  }, [visibleSections]);
+  }, []); // Empty dependency array to run only once
+
+  if (!isClient) {
+    return null; // Prevent SSR issues
+  }
 
   return (
     <div className="w-screen" id="home">
-      
       <img src="/grid.svg" alt="grid" style={{ height: "100vh" }} />
       <div className="absolute top-0 w-screen lg:h-screen flex items-center justify-center flex-col">
-  {/* Navbar stays fixed */}
-  <Navbar className="self-start" />
-
-  {/* Text centered within remaining space */}
-    <Text />
-<AutoIncreaseCounter></AutoIncreaseCounter>
-</div>
-
-
+        {/* Navbar stays fixed */}
+        <Navbar className="self-start" />
+        {/* Text centered within remaining space */}
+        <Text />
+        <AutoIncreaseCounter />
+      </div>
 
       <div className="relative sm:mt-20 md:mt-20">
         <About isVisible={visibleSections.about} />

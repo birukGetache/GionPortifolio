@@ -1,6 +1,5 @@
 "use client";
 const About = ({ isVisible }) => {
-
   return (
     <section
       className={`lg:py-16 py-6 px-4 sm:px-6 lg:px-8 w-screen transition-opacity duration-500 ease-in-out   ${
