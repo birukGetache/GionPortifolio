@@ -16,12 +16,12 @@ export default {
       },
       keyframes: {
         aboutanime: {
-          from: { transform: "translateY(300px)", opacity: "0" },
-          to: { transform: "translateY(0px)", opacity: "1" },
+          from: { transform: "translateY(300px)" },
+          to: { transform: "translateX(0px)" },
         },
         serviceanime: { // Move this inside the `keyframes` object
-          from: { transform: "translateY(100px)", opacity: "0" , display:"hidden"},
-          to: { transform: "translateY(0px)", opacity: "1" , display:"unset" },
+          from: { transform: "translateY(300px)" },
+          to: { transform: "translateX(0px)" },
         },
       },
       animation: {
