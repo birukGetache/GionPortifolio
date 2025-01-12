@@ -30,14 +30,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={` ${theme === 'dark' ? 'bg-gray-700' : 'bg-gray-600'} left-5 right-5 fixed lg:top-0 top-4 z-10 bg-opacity-50 text-white shadow-md w-[90%] rounded-full m-auto ${theme === 'dark' ? 'dark' : ''} lg:mt-20 mt-10 sm:mt-8`}>
+    <nav className={` ${theme === 'dark' ? 'bg-gray-700' : 'bg-gray-600'} left-5 right-5 fixed lg:top-0 top-1 z-10 bg-opacity-50 text-white shadow-md w-[90%] rounded-full m-auto ${theme === 'dark' ? 'dark' : ''} lg:mt-20 mt-10 sm:mt-8`}>
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className=" flex items-center justify-between h-16 relative">
           {/* Logo */}
           <div className="flex items-center">
             <a href="/" className="text-2xl font-bold text-white h-[30px] w-[30px] flex gap-3">
               <img src='/logo.png' alt='logo' className='max-h-full max-w-full rounded-full' />
-              <p className='font-cursive text-nowrap '><span className='text-5xl'>G</span>hion tech solution</p>
+              <p className={` ${theme === 'dark' ? 'text-slate-700' : 'text-gray-300'} font-cursive text-nowrap`}><span className='text-5xl'>G</span>hion tech solution</p>
             </a>
           </div>
 
