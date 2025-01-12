@@ -14,6 +14,7 @@ import AutoIncreaseCounter from "./components/AutoIncreaseCounter";
 
 const DynamicHome = () => {
   const [visibleSections, setVisibleSections] = useState({});
+  const [color , setColor] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -39,10 +40,10 @@ const DynamicHome = () => {
   return (
     <div className="w-screen">
       <img src="/grid.svg" alt="grid" style={{ height: "100vh" }} />
-      <Navbar />
+      <Navbar setColor={setColor}  color = {color} />
       <div className="absolute top-28 h-screen w-screen">
     
-        <Text />
+        <Text color = {color}/>
       </div>
 
       <div className="relative sm:mt-20 md:mt-20">

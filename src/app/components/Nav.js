@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa'; // Import sun, moon, bars, and times icons
 
-const Navbar = () => {
+const Navbar = ({setColor , color}) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState('light'); // Default theme is light
   const [language, setLanguage] = useState('en'); // Default language is English
@@ -22,13 +22,8 @@ const Navbar = () => {
 
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
+    setColor(!color)
   };
-
-  const handleLanguageChange = (e) => {
-    setLanguage(e.target.value);
-    // Implement the actual language switch logic here if necessary
-  };
-
   return (
     <nav className={` ${theme === 'dark' ? 'bg-gray-700' : 'bg-gray-600'} left-5 right-5 fixed lg:top-0 top-1 z-10 bg-opacity-50 text-white shadow-md w-[90%] rounded-full m-auto ${theme === 'dark' ? 'dark' : ''} lg:mt-20 mt-10 sm:mt-8`}>
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">

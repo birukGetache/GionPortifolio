@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./BendingLine.module.css";
 
-const BentLine = () => {
+const BentLine = ({color}) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -23,7 +23,16 @@ const BentLine = () => {
         this.size = Math.random() * 5 + 1; // Random size between 1 and 6
         this.speedX = Math.random() * 2 - 1;
         this.speedY = Math.random() * 2 - 1;
-        this.color = `rgba(255, 255, 255, ${Math.random()})`;
+        if(color){
+           this.color = `rgba(0, 0, 0, ${Math.random()})`;
+          console.log(color);
+
+        }
+        else{
+          this.color = `blue`;
+          this.color = `rgba(255, 255, 255, ${Math.random()})`;
+
+        }
       }
 
       update() {
@@ -78,7 +87,7 @@ const BentLine = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [color]);
 
   return (
     <div className={`${styles.container} relative h-screen lg:grid grid-cols-2`}>
